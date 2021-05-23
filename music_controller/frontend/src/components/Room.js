@@ -23,16 +23,15 @@ export default class Room extends Component {
     this.authenticateSpotify = this.authenticateSpotify.bind(this);
     this.getCurrentSong = this.getCurrentSong.bind(this);
     this.getRoomDetails();
-    this.getCurrentSong();
   }
 
-  // componentDidMount() {
-  //   this.interval = setInterval(this.getCurrentSong, 1000);
-  // }
+  componentDidMount() {
+    this.interval = setInterval(this.getCurrentSong, 1000);
+  }
 
-  // componentWillUnmount() {
-  //   clearInterval(this.interval);
-  // }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   getRoomDetails() {
     fetch("/api/get-room" + "?code=" + this.roomCode)
